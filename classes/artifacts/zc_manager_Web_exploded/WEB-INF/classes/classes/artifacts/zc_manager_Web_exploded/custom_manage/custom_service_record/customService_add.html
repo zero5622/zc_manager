@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>客户信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<body>
+<form action="" id="addStaffList">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>客户居家康复护理服务登记表<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-new">
+			<div class="ecitic-operation ecitic-operation-bg">
+				<button type="button" class="btn btn-ecitic" id="posi_add_add">增加</button>
+			</div>
+			<table class="table table-bordered table-hover pos-rel" id="posi_add_table">
+				<tr>
+					<th width="8%">编号</th>
+					<th width="12%">日期</th>
+					<th width="23%">服务项目</th>
+					<th width="23%">服务情况描述</th>
+					<th width="12%">康复员</th>
+					<th width="12%">客户或家属</th>
+					<th width="4%">操作</th>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-save">
+			<input id="staffInfoSave" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+ //单选按钮 
+ var staSex=getCurrentPageObj().find("input[name='S.staff_sex']");
+ 	staSex.unbind("click"); 
+ 	staSex.click(function(){ 
+ 	getCurrentPageObj().find("input[name='S.staff_sex']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd'); 
+ });
+ var staWed=getCurrentPageObj().find("input[name='S.staff_wed']");
+ 	staWed.unbind("click");
+ 	staWed.click(function(){
+ 	getCurrentPageObj().find("input[name='S.staff_wed']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd');
+ });
+</script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script src="custom_manage/custom_service_record/customService_add.js"></script>
+</body>
+</html>

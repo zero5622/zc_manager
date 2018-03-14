@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5FBrfd85hNaLWupp7rGuffwqnvrUEyUN"></script>
+	<title>纯文本的信息窗口</title>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	(function(map){
+		// 创建地址解析器实例
+	    var myGeo = new BMap.Geocoder();
+		var mapBaidu = new BMap.Map("allmap");
+			mapBaidu.enableScrollWheelZoom(true);//滚动
+			mapBaidu.setZoom(4);
+		map.addMapPoint=function(x,y,title,content){
+			var point = new BMap.Point(x,y);
+			var marker = new BMap.Marker(point);  // 创建标注
+			mapBaidu.addOverlay(marker);              // 将标注添加到地图中
+			mapBaidu.centerAndZoom(point, 15);
+			var opts = {
+				width : 200,     // 信息窗口宽度
+				height: 100,     // 信息窗口高度
+				title : title , // 信息窗口标题
+				enableMessage:true,//设置允许信息窗发送短息
+				message:""
+			};
+			var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象
+			marker.addEventListener("click", function(){
+				mapBaidu.setZoom(12.5); 
+				mapBaidu.openInfoWindow(infoWindow,point); //开启信息窗口
+			});
+		};
+		map.getPoint=function(adds,func_call){
+		    myGeo.getPoint(adds, func_call, "北京市");
+		}
+	})(map={});
+	
+	map.addMapPoint(116.419954,39.921988,"海底捞王府井店","~12211122");
+	map.addMapPoint(116.427954,39.921988,"海底捞王府井AA店","98989812211122");
+	
+	//更加地址获取坐标并显示出来
+	var addr="北京市朝阳区双井地铁站";
+	map.getPoint(addr,function(point){
+		map.addMapPoint(point.lng,point.lat,addr,addr);
+	});
+</script>

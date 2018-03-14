@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>病史信息</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<body>
+<form action="" id="addStaffList">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>病史信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td class="table-text" rowspan="7" width="8%">确诊疾病</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>高血压</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="02" name="S.staff_wed"></span>
+							<label>高血脂</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>高血压</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="02" name="S.staff_wed"></span>
+							<label>糖尿病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>冠心病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="02" name="S.staff_wed"></span>
+							<label>脑出血</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="02" name="S.staff_wed"></span>
+							<label>脑梗死</label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>骨科</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="02" name="S.staff_wed"></span>
+							<label>颈椎病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>腰椎病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="02" name="S.staff_wed"></span>
+							<label>退行性骨关节病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>骨质疏松</label>
+						</div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>呼吸系统</label>
+						</div>
+					</td>
+					<td colspan="6">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>消化系统</label>
+						</div>
+					</td>
+					<td colspan="6">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>泌尿系统</label>
+						</div>
+					</td>
+					<td colspan="6">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="S.staff_wed"></span>
+							<label>精神疾病</label>
+						</div>
+					</td>
+					<td colspan="6">
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">其他</td>
+					<td colspan="6">
+						<textarea id="qita" name="S.staff_win" class="citic-text-ast" style="height: 80px"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td class="table-text" width="8%">用药情况</td>
+					<td>
+						<textarea id="yongyaoqingkang" name="S.staff_win" class="citic-text-ast" style="height: 80px"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td class="table-text" width="8%">医生建议</td>
+					<td>
+						<textarea id="yishengjianyi" name="S.staff_win" class="citic-text-ast" style="height: 80px"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-save">
+			<input id="staffInfoSave" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+ //单选按钮 
+ var staSex=getCurrentPageObj().find("input[name='S.staff_sex']");
+ 	staSex.unbind("click"); 
+ 	staSex.click(function(){ 
+ 	getCurrentPageObj().find("input[name='S.staff_sex']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd'); 
+ });
+ var staWed=getCurrentPageObj().find("input[name='S.staff_wed']");
+ 	staWed.unbind("click");
+ 	staWed.click(function(){
+ 	getCurrentPageObj().find("input[name='S.staff_wed']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd');
+ });
+</script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script src="resources/staffInfo/customInfo_add.js"></script>
+</body>
+</html>

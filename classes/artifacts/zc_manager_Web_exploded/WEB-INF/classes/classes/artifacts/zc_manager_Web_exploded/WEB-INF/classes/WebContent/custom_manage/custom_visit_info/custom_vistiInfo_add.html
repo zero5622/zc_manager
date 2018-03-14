@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>客户信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+	<style>
+		#shengmingtizheng input{
+			width: 70%;}
+		td {text-align:center}
+	</style>
+</head>
+<body>
+<form action="" id="addStaffList">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>体格检查<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text " style="width: 100%" id="shengmingtizheng"><!-- table-bor-paw-->
+				<tr >
+					<td class="table-text" rowspan="2" bgcolor="#0470bc" style="color: #fff">生命体征</td>
+					<td class="table-text">体温</td>
+					<td >
+						<input type="text" id="staff_code" name="S.staff_code" validate="v.required" />℃
+					</td>
+                    <td  class="table-text">脉搏</td>
+					<td >
+						<input type="text" id="maibo" name="S.staff_code" validate="v.required" />次/分
+					</td>
+					<td  class="table-text">呼吸</td>
+					<td >
+						<input type="text" id="huxi" name="S.staff_code" validate="v.required"  />次/分
+					</td>
+					<td  class="table-text">血压</td>
+					<td>
+						<input type="text" id="xueya" name="S.staff_code" validate="v.required"  />mmHg
+					</td>
+				</tr>
+				<tr >
+					<td  class="table-text">血糖</td>
+					<td >
+						<input type="text" id="xuetang" name="S.staff_code" validate="v.required"  />mmol/L
+					</td>
+					<td  class="table-text">身高</td>
+					<td >
+						<input type="text" id="shengao" name="S.staff_code" validate="v.required" />cm
+					</td>
+					<td  class="table-text">体重</td>
+					<td ><input type="text" id="tizhong" name="S.staff_code" validate="v.required"/>kg</td>
+					<td  class="table-text">体重指数</td>
+					<td >
+						<input type="text" id="bmi" name="S.staff_code" validate="v.required" />
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text " style="font-size: 12px;text-align: center" id="tigejiancha">
+				<tr>
+					<td  class="table-text" width="80px">发育</td>
+					<td >
+						<input type="text" id="fayu" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text" width="80px">营养</td>
+					<td >
+						<input type="text" id="yingyang" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text" width="80px">体位</td>
+					<td >
+						<input type="text" id="tiwei" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text" width="80px">神智</td>
+					<td >
+						<input type="text" id="shenzhi" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text" width="120px">全身皮肤粘膜黄染</td>
+					<td >
+						<input type="text" id="qspfnmhr" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text" width="120px">浅表淋巴结肿大</td>
+					<td >
+						<input type="text" id="qblbjzd" name="S.staff_code" validate="v.required" />
+					</td>
+				</tr>
+				<tr>
+					<td  class="table-text">咽</td>
+					<td >
+						<input type="text" id="yan" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">胸部叩诊</td>
+					<td >
+						<input type="text" id="xiongbukouzhen" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">呼吸音</td>
+					<td >
+						<input type="text" id="huxiyin" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">啰音</td>
+					<td >
+						<input type="text" id="luoyin" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">腹</td>
+					<td >
+						<input type="text" id="fu" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">压痛及反跳痛</td>
+					<td >
+						<input type="text" id="yatongjifantiaotong" name="S.staff_code" validate="v.required" />
+					</td>
+				</tr>
+				<tr>
+					<td  class="table-text">脊柱畸形</td>
+					<td >
+						<input type="text" id="jizhujixing" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">四肢畸形</td>
+					<td >
+						<input type="text" id="sizhijixing" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">关节</td>
+					<td >
+						<input type="text" id="guanjie" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">膝腱反射</td>
+					<td >
+						<input type="text" id="xijianfanshe" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text">巴氏症</td>
+					<td >
+						<input type="text" id="bashizheng" name="S.staff_code" validate="v.required" />
+					</td>
+					<td  class="table-text"></td>
+					<td >
+					</td>
+				</tr>
+				<tr>
+					<td  class="table-text">异常结果</td>
+					<td colspan="11">
+						<textarea class="citic-text-ast" name="UM.other_work" ></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-save">
+			<input id="staffInfoSave" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+ //单选按钮 
+ var staSex=getCurrentPageObj().find("input[name='S.staff_sex']");
+ 	staSex.unbind("click"); 
+ 	staSex.click(function(){ 
+ 	getCurrentPageObj().find("input[name='S.staff_sex']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd'); 
+ });
+ var staWed=getCurrentPageObj().find("input[name='S.staff_wed']");
+ 	staWed.unbind("click");
+ 	staWed.click(function(){
+ 	getCurrentPageObj().find("input[name='S.staff_wed']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd');
+ });
+</script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script src="resources/staffInfo/customInfo_add.js"></script>
+</body>
+</html>

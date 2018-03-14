@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>客户信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<body>
+<form action="" id="addStaffList">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>客户基本信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td width="11%" class="table-text">客户姓名</td>
+					<td width="22.333%">
+						<input type="text" id="staff_code" name="S.staff_code" validate="v.required" class="citic-ast" />
+					</td>
+                    <td width="11%" class="table-text">性别</td>
+                    <td width="22.333%">
+                        <div class="ecitic-radio-all" id="staff_sex">
+                            <div class="ecitic-radio ecitic-radio-inline">
+                                <span class="checkd"><input type="radio" value="01" checked="true" name="S.staff_sex"/></span>
+                                <label>男</label>
+                            </div>
+                            <div class="ecitic-radio ecitic-radio-inline">
+                                <span style="margin-left:14px;"><input type="radio" value="02" name="S.staff_sex"/></span>
+                                <label>女</label>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="11%" class="table-text">出生年月</td>
+                    <td width="22.333%">
+                        <input type="text" id="staff_birthday" name="S.staff_birthday" onClick="WdatePicker({})" valititle="点击选择"  onchange="TimeCompare()" class="citic-ast" class="input" readonly/>
+                    </td>
+
+				</tr>
+				<tr>
+                    <td class="table-text">身份证号</td>
+                    <td>
+                        <input type="text" id="identity_card" name="S.identity_card" class="citic-ast"/>
+                    </td>
+                    <td class="table-text">生活自理程度</td>
+                    <td>
+                        <select id="selfcare" name="S.staff_edu_nature" class="citic-sele-ast" validate="v.required"></select>
+                    </td>
+                    <td class="table-text">就业状况</td>
+                    <td>
+                        <select id="jobstate" name="S.staff_edu_nature" class="citic-sele-ast" validate="v.required"></select>
+                    </td>
+				</tr>
+                <tr>
+                </tr>
+				<tr>
+					<td class="table-text">户籍类别</td>
+					<td>
+						<select id="RRtype" name="S.staff_edu_nature" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td class="table-text">婚否</td>
+					<td>
+						<div class="ecitic-radio-all" id="staff_wed">
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span class="checkd"><input type="radio" value="01" checked="true" name="S.staff_wed"></span>
+								<label>已婚</label>
+							</div>
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span><input type="radio" value="02" name="S.staff_wed"></span>
+								<label>未婚</label>
+							</div>
+						</div>
+					</td>
+					<td class="table-text">文化程度</td>
+					<td>
+						<input type="text" id="wenhuachengdu" name="S.politics_branch" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">职业</td>
+					<td>
+						<input type="text" id="zhiye" name="S.politics_branch" class="citic-ast"/>
+					</td><td class="table-text">民族</td>
+					<td>
+						<input type="text" id="minzu" name="S.politics_branch" class="citic-ast"/>
+					</td><td class="table-text">宗教信仰</td>
+					<td>
+						<input type="text" id="zongjiaoxinyang" name="S.politics_branch" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">家庭住址</td>
+					<td colspan="3">
+						<input type="text" id="jiatingzhuzhi" name="S.staff_nation" class="citic-ast"/>
+					</td>
+					<td class="table-text">电话</td>
+					<td>
+						<input type="text" id="dianhua" name="S.staff_origin" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">监护人姓名</td>
+					<td>
+						<input type="text" id="jianhurenxingming" name="S.staff_phone" validate="v.tel" class="citic-ast"/>
+					</td>
+					<td class="table-text">与监护者关系</td>
+					<td>
+						<input type="text" id="yujianhuzheguanxi" name="S.staff_origin" class="citic-ast"/>
+					</td>
+					<td class="table-text">监护人电话</td>
+					<td>
+						<input type="text" id="jianhurendianhua" name="S.staff_residence" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">医疗支付</td>
+					<td >
+						<select id="yiliaozhifu" name="S.staff_edu_nature" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td class="table-text">药物过敏史</td>
+					<td>
+						<select id="yaowuguominshi" name="S.staff_edu_nature" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td class="table-text">饮食习惯</td>
+					<td>
+						<select id="yinshixiguan" name="S.staff_edu_nature" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">定点医疗机构1</td>
+					<td >
+						<input type="text" id="dingdianyiliaojigou1" name="S.staff_email" validate="v.email" class="citic-ast"/>
+					</td>
+					<td class="table-text">定点医疗机构2</td>
+					<td>
+						<input type="text" id="dingdianyiliaojigou2" name="S.staff_school" validate="v.required" class="citic-ast"/>
+					</td>
+					<td class="table-text">定点医疗机构3</td>
+					<td>
+						<input type="text" id="dingdianyiliaojigou3" name="S.staff_special" validate="v.required" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">睡眠习惯</td>
+					<td width="10%">
+						<input type="text" id="shuimianxiguan" name="S.staff_school" validate="v.required" class="citic-ast" />小时/天
+					</td>
+					<td width="11%" class="table-text">血型</td>
+					<td width="22.333%">
+						<select id="xuexing" name="S.staff_education" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td width="11%" class="table-text"></td>
+					<td width="22.333%">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title">
+			<span>目前生活状况<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+		<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+		<tr>
+		<td width="11%" class="table-text">居住情况</td>
+		<td width="22.333%">
+			<select id="juzhuqingkuang" name="S.staff_education" class="citic-sele-ast" validate="v.required"></select>
+		</td>
+			<td width="11%" class="table-text">经济来源</td>
+			<td width="22.333%">
+				<select id="jingjilaiyuan" name="S.staff_education" class="citic-sele-ast" validate="v.required"></select>
+			</td>
+			<td width="11%" class="table-text">居住环境</td>
+			<td width="22.333%">
+				<select id="juzhuhuanjing" name="S.staff_education" class="citic-sele-ast" validate="v.required"></select>
+			</td>
+		</tr>
+		</table>
+		</div>
+		<div class="ecitic-save">
+			<input id="staffInfoSave" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+ //单选按钮 
+ var staSex=getCurrentPageObj().find("input[name='S.staff_sex']");
+ 	staSex.unbind("click"); 
+ 	staSex.click(function(){ 
+ 	getCurrentPageObj().find("input[name='S.staff_sex']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd'); 
+ });
+ var staWed=getCurrentPageObj().find("input[name='S.staff_wed']");
+ 	staWed.unbind("click");
+ 	staWed.click(function(){
+ 	getCurrentPageObj().find("input[name='S.staff_wed']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd');
+ });
+</script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script src="custom_manage/custom_info/customInfo_add.js"></script>
+</body>
+</html>

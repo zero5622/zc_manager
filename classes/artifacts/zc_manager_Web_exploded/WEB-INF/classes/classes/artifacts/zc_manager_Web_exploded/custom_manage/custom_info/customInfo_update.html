@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>人员入行信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<body>
+<form action="" id="updateStaffList">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>行员基本信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<span>
+				<input type="hidden" id="STAFF_ID" name="STAFF_ID"/>
+			</span>
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td width="11%" class="table-text">行员编号</td>
+					<td width="22.333%">
+						<div class="pos-rel">
+							<input type="text" id="STAFF_CODE" name="STAFF_CODE" validate="v.required" class="citic-ast" readonly/>
+						</div>
+					</td>
+					<td width="11%" class="table-text">行员姓名</td>
+					<td width="22.333%">
+						<div class="pos-rel">
+							<input type="text" id="STAFF_NAME" name="STAFF_NAME" validate="v.required" class="citic-ast"/>
+						</div>
+					</td>
+					<td width="33.333%" rowspan="5" colspan="2" class="ecitic-photo photo-edit">
+						<table class="table table-bordered table-bor-paw pos-rel-table">
+							<tr>
+								<td>
+									<div class="uploadPicture">
+										<div class="staff-picture">
+											<i class="picture-delete whide"></i>
+											<img id="STAFF_PICTURE" class="whide" onload="loadupatePicture(this)" src="" />
+											<input type="hidden" name="STAFF_PICTURE" />
+										</div>
+										<div class="uploadPicture-btns">
+											<span class="btn btn-ecitic">上传</span>
+											<input id="updatePic" name="file" type="file" accept="image/*" />
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="11%" class="table-text">性别</td>
+					<td width="22.333%">
+						<div class="ecitic-radio-all" id="STAFF_SEX">
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span class="checkd"><input type="radio" value="01" checked="true" name="STAFF_SEX"/></span>
+								<label>男</label>
+							</div>
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span style="margin-left:14px;"><input type="radio" value="02" name="STAFF_SEX"/></span>
+								<label>女</label>
+							</div>
+						</div>
+					</td>
+					<td class="table-text">出生年月</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_BIRTHDAY" name="STAFF_BIRTHDAY" onClick="WdatePicker({})" 
+							valititle="点击选择"  onchange="TimeCompare()" class="citic-ast" class="input" readonly />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">婚否</td>
+					<td>
+						<div class="ecitic-radio-all" id="STAFF_WED">
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span class="checkd"><input type="radio" value="01" checked="true" name="STAFF_WED"></span>
+								<label>已婚</label>
+							</div>
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span><input type="radio" value="02" name="STAFF_WED"></span>
+								<label>未婚</label>
+							</div>
+						</div>
+					</td>
+					<td class="table-text">政治面貌</td>
+					<td>
+						<div class="pos-rel">
+							<select id="STAFF_POLITICS" name="STAFF_POLITICS" class="citic-sele-ast" validate="v.required"
+							onchange="politics_update(this);"></select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">入党/团时间</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_POLITICS_ST" name="STAFF_POLITICS_ST"
+							onClick="WdatePicker({})" valititle="点击选择"  onchange="TimeCompare()" disabled="true" class="citic-ast" class="input" readonly />
+						</div>
+					</td>
+					<td class="table-text">党/团支部</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="POLITICS_BRANCH" name="POLITICS_BRANCH" disabled="true" class="citic-ast"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">民族</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_NATION" name="STAFF_NATION" class="citic-ast"/>
+						</div>
+					</td>
+					<td class="table-text">籍贯</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_ORIGIN" name="STAFF_ORIGIN" class="citic-ast"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">联系电话</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_PHONE" name="STAFF_PHONE" validate="v.required" class="citic-ast"/>
+						</div>
+					</td>
+					<td class="table-text">身份证号</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="IDENTITY_CARD" name="IDENTITY_CARD" class="citic-ast"/>
+						</div>
+					</td>
+					<td class="table-text">户口所在地</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_RESIDENCE" name="STAFF_RESIDENCE" class="citic-ast"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">个人邮箱</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_EMAIL" name="STAFF_EMAIL" validate="v.required" class="citic-ast"/>
+						</div>
+					</td>
+					<td class="table-text">毕业院校</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_SCHOOL" name="STAFF_SCHOOL" validate="v.required" class="citic-ast"/>
+						</div>
+					</td>
+					<td class="table-text">所学专业</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_SPECIAL" name="STAFF_SPECIAL" validate="v.required" class="citic-ast"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">学历性质</td>
+					<td>
+						<div class="pos-rel">
+							<select id="STAFF_EDU_NATURE" name="STAFF_EDU_NATURE" class="citic-sele-ast" validate="v.required">
+							</select>
+						</div>
+					</td>
+					<td width="11%" class="table-text">学历</td>
+					<td width="22.333%">
+						<div class="pos-rel">
+							<select id="STAFF_EDUCATION" name="STAFF_EDUCATION" class="citic-sele-ast" validate="v.required">
+							</select>
+						</div>
+					</td>
+					<td class="table-text">学位</td>
+					<td>
+						<div class="pos-rel">
+							<select id="STAFF_DEGREE" name="STAFF_DEGREE" class="citic-sele-ast" validate="v.required">
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">参加工作时间</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="START_WORKTIME" name="START_WORKTIME"
+						onClick="WdatePicker({})" valititle="点击选择"  onchange="TimeCompare()" validate="v.required" class="citic-ast" class="input" readonly />
+						</div>
+					</td>
+					<td class="table-text">现在居住地</td>
+					<td colspan="3">
+						<div class="pos-rel">
+							<input type="text" id="STAFF_ADDRESS" name="STAFF_ADDRESS" class="citic-ast"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">紧急联系人</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="EC_PERSON" name="EC_PERSON" class="citic-ast"/>
+						</div>
+					</td>
+					<td class="table-text">与本人关系</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="STAFF_RELATION" name="STAFF_RELATION" class="citic-ast"/>
+						</div>
+					</td>
+					<td class="table-text">紧急联系电话</td>
+					<td>
+						<div class="pos-rel">
+							<input type="text" id="EC_PHONE" name="EC_PHONE" class="citic-ast"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">特长</td>
+					<td colspan="5">
+						<div class="pos-rel">
+							<textarea id="STAFF_SPECIAL_SKILL" name="STAFF_SPECIAL_SKILL" class="citic-text-ast"></textarea>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">获奖情况</td>
+					<td colspan="5">
+						<div class="pos-rel">
+							<textarea id="STAFF_WIN" name="STAFF_WIN" class="citic-text-ast"></textarea>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title">
+			<span>子女信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-new">
+			<div class="ecitic-operation ecitic-operation-bg">
+				<button type="button" class="btn btn-ecitic" id="child_update_add">增加</button>
+			</div>
+			<table class="table table-bordered table-center table-th tablr-input-text" id="child_update_table">
+				<tr>
+					<!-- <th width="8%">序号</th> -->
+					<th width="23%">子女姓名</th>
+					<th width="23%">子女性别</th>
+					<th width="23%">出生年月</th>
+					<th width="23%">操作</th>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title">
+			<span>行内信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered table-center table-th tablr-input-text">
+				<tr>
+					<td width="12%" class="table-text">门禁卡号</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<input type="text" id="STAFF_DOORCARD" name="STAFF_DOORCARD" class="citic-ast"/>
+						</div>
+					</td>
+					<td width="12%" class="table-text">入职时间</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<input type="text" id="STAFF_HIREDATE" name="STAFF_HIREDATE"
+							onClick="WdatePicker({})" valititle="点击选择"  onchange="TimeCompare()" validate="v.required" class="citic-ast" class="input" readonly />
+						</div>
+					</td>
+					<td width="12%" class="table-text">所在部门</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<input type="hidden" name="STAFF_DEPT"/>
+							<input type="text" id="STAFF_DEPT" validate="v.required" class="citic-ast" readonly/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="12%" class="table-text">所在处室</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<input type="hidden" name="STAFF_OFFICES"/>
+							<input type="text" id="STAFF_OFFICES" class="citic-ast" readonly/>
+						</div>
+					</td>
+					<td width="12%" class="table-text">所在组</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<input type="hidden" name="STAFF_GROUP"/>
+							<input type="text" id="STAFF_GROUP" class="citic-ast" readonly/>
+						</div>
+					</td>
+					<td width="12%" class="table-text">职务</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<select id="STAFF_POST" name="STAFF_POST" class="citic-sele-ast" >
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="12%" class="table-text">职级</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<select id="STAFF_LEVEL" name="STAFF_LEVEL" class="citic-sele-ast" >
+							</select>
+						</div>
+					</td>
+					<td width="12%" class="table-text">中信人卡卡号</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<input type="text" id="STAFF_PAYCARD" name="STAFF_PAYCARD" class="citic-ast"/>
+						</div>
+					</td>
+					<td width="12%" class="table-text">技术职称</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<input type="text" id="STAFF_TECHNICAL_TITLE" name="STAFF_TECHNICAL_TITLE" class="citic-ast"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="12%" class="table-text">金融行业年限</td>
+					<td width="21.333%">
+						<div class="pos-rel">
+							<input type="text" id="FINANCIAL_YEAR" name="FINANCIAL_YEAR" class="citic-ast"/>
+						</div>
+					</td>
+					<td width="12%" class="table-text">入本部门时间</td>
+					<td width="21.333%">
+						<input type="text" id="STAFF_LOCALHIREDATE" name="STAFF_LOCALHIREDATE" onClick="WdatePicker({})" valititle="点击选择"  onchange="TimeCompare()" validate="v.required" class="citic-ast" class="input" readonly/>
+					</td>
+					<td width="12%" class="table-text"></td>
+					<td width="21.333%">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title">
+			<span>岗位信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-new">
+			<div class="ecitic-operation ecitic-operation-bg">
+				<button type="button" class="btn btn-ecitic" id="posi_update_add">增加</button>
+			</div>
+			<table class="table table-bordered table-center table-th tablr-input-text" id="posi_update_table">
+				<tr>
+					<!-- <th width="8%">序号</th> -->
+					<th width="23%">当前岗位</th>
+					<th width="23%">当前岗位开始时间</th>
+					<th width="23%">备注</th>
+					<th width="23%">操作</th>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-save">
+			<input id="staffInfoUpdate" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+ //单选按钮 
+ var staupdateSex=getCurrentPageObj().find("input[name='STAFF_SEX']");
+ 	staupdateSex.unbind("click"); 
+ 	staupdateSex.click(function(){ 
+ 	getCurrentPageObj().find("input[name='STAFF_SEX']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd'); 
+ });
+ var staupdateWed=getCurrentPageObj().find("input[name='STAFF_WED']");
+ 	staupdateWed.unbind("click");
+ 	staupdateWed.click(function(){
+ 	getCurrentPageObj().find("input[name='STAFF_WED']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd');
+ });
+</script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script src="resources/staffInfo/staffInfo_update.js"></script>
+</body>
+</html>

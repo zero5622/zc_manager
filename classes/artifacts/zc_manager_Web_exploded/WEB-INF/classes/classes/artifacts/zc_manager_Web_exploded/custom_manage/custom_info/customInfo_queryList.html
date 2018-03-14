@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>人员入行信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<body>
+<div class="ecitic-inquire" id="ecitic-inquire">
+	<div class="ecitic-table" id="ecitic-table">
+		<form action="" id="staffInfoList">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-bor-pad">
+				<tr>
+					<td class="ecitic-right">生活自理程度</td>
+					<td><select id="shenghuozilichengdu" name="staff_politics"></select></td>
+					<td class="ecitic-right">客户姓名</td>
+					<td>
+						<input type="text" name="staff_name" id="staff_name"/>
+					</td>
+					<td class="ecitic-right">医疗支付</td>
+					<td>
+						<select id="yiliaozhifu" name="staff_politics"></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="ecitic-right">家庭住址</td>
+					<td>
+						<input type="text" id="jiatingzhuzhi" placeholder="默认显示"  />
+					</td>
+					<td class="ecitic-right">搜索候选A</td>
+					<td>
+						<input type="hidden" name="staff_offices" />
+						<input type="text" id="staff_offices" placeholder="默认显示" class="citic-ast" readonly/>
+					</td>
+					<td class="ecitic-right">搜索候选B</td>
+					<td>
+						<input type="hidden" name="staff_group" />
+						<input type="text" id="staff_group" placeholder="默认显示" class="citic-ast" readonly/>
+					</td>
+				</tr>
+				<tr>
+					<!--<td class="ecitic-right">政治面貌</td>-->
+					<!--<td>-->
+						<!--<select id="staff_politics" name="staff_politics"></select>-->
+					<!--</td>-->
+					<!--<td class="ecitic-right">入职时间</td>-->
+					<!--<td>-->
+						<!--<span class="ecitic-time">-->
+							<!--<input type="text" name="staff_hiredate_st" id="staff_hiredate_st" onClick="hireTimeCompare();" -->
+							<!--class="citic-ast" class="input" placeholder="点击选择" readonly/>-->
+						<!--</span>-->
+						<!--<span class="ecitic-to">至</span>-->
+						<!--<span class="ecitic-time">-->
+							<!--<input type="text" name="staff_hiredate_et" id="staff_hiredate_et" onClick="hireTimeCompare();" -->
+							<!--class="citic-ast" class="input" placeholder="点击选择" readonly/>-->
+						<!--</span>-->
+					<!--</td>-->
+					<!--<td class="ecitic-right"></td>-->
+					<!--<td></td>-->
+				</tr>
+			</table>
+		</form>
+	</div>
+	<ul class="ecitic-btn-all">
+		<li><button type="button" class="btn btn-ecitic" id="queryStaffInfo">查询</button></li>
+		<li><button type="button" class="btn btn-ecitic" id="reset">重置</button></li>
+	</ul>
+</div>
+<div class="ecitic-operation">
+	<button type="button" class="btn btn-ecitic" id="customInfoAdd">新增</button>
+	<button type="button" class="btn btn-ecitic" id="staffInfoEdit">修改</button>
+	<button type="button" class="btn btn-ecitic" id="staffInfoDel">删除</button>
+</div>
+<div class="ecitic-new">
+	<table class="table table-bordered table-hover" id="staffTableInfo"></table>
+</div>
+
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="custom_manage/custom_info/customInfo_queryList.js"></script>
+</body>
+</html>

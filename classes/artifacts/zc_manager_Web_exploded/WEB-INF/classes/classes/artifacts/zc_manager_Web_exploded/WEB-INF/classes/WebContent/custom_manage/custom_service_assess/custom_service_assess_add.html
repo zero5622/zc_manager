@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>居家康复护理服务评定</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+
+<body>
+	<div class="ecitic-title-table">
+		<span>
+			<input type="hidden" id="id" name="UB.id"/>
+		</span>
+		<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+			<tr>
+				<td width="8%" class="table-text">诊断:</td>
+				<td width="17%">
+					<input type="text"  name="UM.period" id="zhengduan" readonly="readonly" class="citic-ast" />
+				</td>
+				<td width="8%" class="table-text">病程:</td>
+				<td width="17%">
+					<input type="text"  name="UM.period" id="bingcheng" readonly="readonly" class="citic-ast" />
+				</td>
+				<td width="8%" class="table-text">康复员:</td>
+				<td width="17%">
+					<input type="text"  name="UM.period" id="period" readonly="readonly" class="citic-ast" />
+				</td>
+				<td width="8%" class="table-text">老人/家属:</td>
+				<td width="17%">
+					<input id="bank_code_add" name="UM.bank_code" class="citic-ast"/>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<ul class="nav nav-tabs" style="font-size:13px;">
+		<li class="active" id="TbreportInfo"><a href="#reportM" data-toggle="tab"><i class="icon-home"></i> 初期评定</a></li>
+		<li id="reportB_ad"><a href="#reportB" data-toggle="tab"  ><i class="icon-user"></i> 末期评定</a></li>
+	</ul>
+	<div id="" class="tab-content">
+		<!-- tab1内容开始，月报基本信息 -->
+		<div class="tab-pane fade in active" id="reportM">
+			<div class="ecitic-title-table">
+				<table class="table table-bordered tablr-input-text" id="reportMBaseTable">
+
+					<tr>
+				 		<td class="table-text">目前主要康复、<br>护理问题</td>
+						<td colspan="5"><textarea class="citic-text-ast" name="UM.check_work" style="height:120px"></textarea></td>
+					</tr>
+					<tr>
+						<td width="11%" class="table-text">训练场所</td>
+						<td><select id="xunlianchangsuo" name="S.staff_edu_nature" class="citic-sele-ast" validate="v.required"></select></td>
+					</tr>
+				</table>
+			</div>
+			<div style="background:#0470bc;margin-bottom:5px;overflow:hidden;">
+				<span style="color:#fff;height:30px;line-height:30px;padding:0 20px;float:left;">康复评估<em></em></span>
+			</div>
+			<div class="ecitic-title-table">
+				<table class="table table-bordered tablr-input-text" id="reportMTradeTable">
+					<tr>
+						<th width="8%">评定项目</th>
+						<th width="12%">肌力</th>
+						<th width="12%">肌张力</th>
+						<th width="8%">坐位平衡</th>
+						<th width="8%">立位平衡</th>
+						<th width="12%">步行能力</th>
+						<th width="12%">改良Barthel指数</th>
+						<th width="8%">NRS</th>
+						<th width="8%">手功能</th>
+					</tr>
+				</table>
+				<div class="ecitic-save">
+					<input id="save_reporta" type="button" class="btn btn-ecitic" value="保存" />
+					<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+				</div>
+			</div>
+		</div>
+		<!-- tab1内容结束，月报基本信息 -->
+		
+		<!-- tab2内容开始，故障信息 -->
+		<div class="tab-pane fade" id="reportB">
+			<div class="ecitic-title-table">
+				<table class="table table-bordered table-center table-th tablr-input-text" id="reportBDTableAdd">
+					<tr >
+						<td class="table-text" >训练经过<br>(训练次数、内容)</td>
+						<td colspan="5" width="85% "><textarea class="citic-text-ast" name="UM.check_work" style="height:120px"></textarea></td>
+					</tr>
+					<tr>
+						<td class="table-text">改善情况</td>
+						<td colspan="5"><textarea class="citic-text-ast" name="UM.check_work" style="height:120px"></textarea></td>
+					</tr>
+				</table>
+			</div>
+			<div style="background:#0470bc;margin-bottom:5px;overflow:hidden;">
+				<span style="color:#fff;height:30px;line-height:30px;padding:0 20px;float:left;">康复评估<em></em></span>
+			</div>
+			<div class="ecitic-title-table">
+				<table class="table table-bordered tablr-input-text" id="reportBTradeTable">
+					<tr>
+						<th width="8%">评定项目</th>
+						<th width="12%">肌力</th>
+						<th width="12%">肌张力</th>
+						<th width="8%">坐位平衡</th>
+						<th width="8%">立位平衡</th>
+						<th width="12%">步行能力</th>
+						<th width="12%">改良Barthel指数</th>
+						<th width="8%">NRS</th>
+						<th width="8%">手功能</th>
+					</tr>
+				</table>
+				<div class="ecitic-save">
+					<input id="save_reportb" type="button" class="btn btn-ecitic" value="保存" />
+					<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+				</div>
+			</div>
+		</div>
+		<!-- tab2内容结束，故障信息 -->
+
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript" src="reportinfo/moonreport/moonreport_add.js"></script>
+<script src="upload/uploadFileInfo.js"></script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+</body>
+</html>
