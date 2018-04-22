@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>客户信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+	<style>
+		#checktable tr td input{
+			font-size: 12px;
+		}
+		td {text-align:center}
+		th {text-align:center}
+	</style>
+</head>
+<body>
+<form action="" id="addStaffList">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>客户基本信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<th width="8%">日期</th>
+					<th width="25%">服务项目</th>
+					<th width="20%">服务情况描述</th>
+					<th width="8%">客户姓名</th>
+					<th width="8%">所属项目</th>
+				</tr>
+				<tr>
+					<td width="8%">
+						<input type="text" id="staff_birthday" name="S.staff_birthday" onClick="WdatePicker({})"
+							   valititle="点击选择" onchange="TimeCompare()" class="citic-ast" class="input" readonly/>
+					</td>
+					<td width="20%">
+						<table id="checktable">
+							<tr>
+								<td>
+									<input type="checkbox">肢体训练&emsp;
+									<input type="checkbox">翻身起做&emsp;
+									<input type="checkbox">坐位平衡&emsp;
+									<input type="checkbox">立位平衡&emsp;
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox">转移&emsp;
+									<input type="checkbox">步行或驱动轮椅&emsp;
+									<input type="checkbox">上下台阶&emsp;
+									<input type="checkbox">穿脱衣物&emsp;
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox">洗漱修饰&emsp;
+									<input type="checkbox">如厕&emsp;
+									<input type="checkbox">交流&emsp;
+									<input type="checkbox">做家务&emsp;
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox">社会生活&emsp;
+									<input type="checkbox">家属指导&emsp;
+									<input type="checkbox">其他&emsp;
+									<input type="text" width="10px">
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="20%">
+						<table id="checktable2">
+							<tr>
+								<td class="ecitic-right" width="8%">配合程度</td>
+								<td>
+									<input type="checkbox">配合&emsp;
+									<input type="checkbox">不配合&emsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="ecitic-right">完成情况</td>
+								<td>
+									<input type="checkbox">完成&emsp;
+									<input type="checkbox">部分完成&emsp;
+									<input type="checkbox">未完成&emsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="ecitic-right">家属指导</td>
+								<td>
+									<input type="checkbox">完成&emsp;
+									<input type="checkbox">部分完成&emsp;
+									<input type="checkbox">未完成&emsp;
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td >
+						<input type="text" id="kehuxingming" name="S.identity_card" class="citic-ast"/>
+					</td>
+					<td >
+						<input type="text" id="suoshuxiangmu" name="S.identity_card" class="citic-ast"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-save">
+			<input id="staffInfoSave" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+ //单选按钮 
+ var staSex=getCurrentPageObj().find("input[name='S.staff_sex']");
+ 	staSex.unbind("click"); 
+ 	staSex.click(function(){ 
+ 	getCurrentPageObj().find("input[name='S.staff_sex']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd'); 
+ });
+ var staWed=getCurrentPageObj().find("input[name='S.staff_wed']");
+ 	staWed.unbind("click");
+ 	staWed.click(function(){
+ 	getCurrentPageObj().find("input[name='S.staff_wed']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd');
+ });
+</script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script src="/recoveryService/recoveryServiceRecord/recoveryServiceRecord_add.js"></script>
+</body>
+</html>

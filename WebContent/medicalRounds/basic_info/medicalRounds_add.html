@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>居家康复护理服务评定</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<style>
+	#bodyApperance input{	width: 70%;}
+	td {text-align:center}
+</style>
+<body>
+<form action="" id="addMedicalRounds">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>客户基本信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text">
+				<tr>
+					<td width="11%" class="table-text">客户种类</td>
+					<td width="22.333%">
+						<select id="custom_type" name="MODMR.custom_type" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td width="11%" class="table-text">残疾类型</td>
+					<td width="22.333%">
+						<select id="disabled_type" name="MODMR.disabled_type" class="citic-sele-ast" ></select>
+					</td>
+					<td width="11%" class="table-text"></td>
+					<td>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td width="11%" class="table-text">客户姓名</td>
+					<td width="22.333%">
+						<input type="text" id="custom_name" name="MODMR.custom_name" validate="v.required" class="citic-ast" />
+					</td>
+					<td width="11%" class="table-text">性别</td>
+					<td width="22.333%">
+						<div class="ecitic-radio-all" id="custom_sex">
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span class="checkd"><input type="radio" value="01" checked="true" name="MODMR.custom_sex"/></span>
+								<label>男</label>
+							</div>
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span style="margin-left:14px;"><input type="radio" value="02" name="MODMR.custom_sex"/></span>
+								<label>女</label>
+							</div>
+						</div>
+					</td>
+					<td width="11%" class="table-text">出生年月</td>
+					<td width="22.333%">
+						<input type="text" id="custom_birthday" name="MODMR.custom_birthday" onClick="WdatePicker({})" valititle="点击选择"  onchange="TimeCompare()" class="citic-ast" class="input" readonly/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">身份证号</td>
+					<td>
+						<input type="text" id="custom_idcard" name="MODMR.custom_idcard" class="citic-ast"/>
+					</td>
+					<td class="table-text">生活自理程度</td>
+					<td>
+						<select id="custom_selfcare" name="MODMR.custom_selfcare" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td class="table-text">就业状况</td>
+					<td>
+						<select id="custom_jobState" name="MODMR.custom_jobState" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+				</tr>
+				<tr>
+				</tr>
+				<tr>
+					<td class="table-text">户籍类别</td>
+					<td>
+						<select id="custom_homeType" name="MODMR.custom_homeType" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td class="table-text">婚否</td>
+					<td>
+						<div class="ecitic-radio-all" id="custom_wed">
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span class="checkd"><input type="radio" value="01" checked="true" name="MODMR.custom_wed"></span>
+								<label>已婚</label>
+							</div>
+							<div class="ecitic-radio ecitic-radio-inline">
+								<span><input type="radio" value="02" name="MODMR.custom_wed"></span>
+								<label>未婚</label>
+							</div>
+						</div>
+					</td>
+					<td class="table-text">文化程度</td>
+					<td>
+						<input type="text" id="custom_edu" name="MODMR.custom_edu" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">职业</td>
+					<td>
+						<input type="text" id="custom_career" name="MODMR.custom_career" class="citic-ast"/>
+					</td><td class="table-text">民族</td>
+					<td>
+						<input type="text" id="custom_ethnic" name="MODMR.custom_ethnic" class="citic-ast"/>
+					</td><td class="table-text">宗教信仰</td>
+					<td>
+						<input type="text" id="custom_faith" name="MODMR.custom_faith" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">家庭住址</td>
+					<td colspan="3">
+						<input type="text" id="custom_address" name="MODMR.custom_address" class="citic-ast"/>
+					</td>
+					<td class="table-text">电话</td>
+					<td>
+						<input type="text" id="custom_phone" name="MODMR.custom_phone" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">监护人姓名</td>
+					<td>
+						<input type="text" id="guardian_name" name="MODMR.guardian_name" validate="v.tel" class="citic-ast"/>
+					</td>
+					<td class="table-text">与监护者关系</td>
+					<td>
+						<input type="text" id="guardian_relationship" name="MODMR.guardian_relationship" class="citic-ast"/>
+					</td>
+					<td class="table-text">监护人电话</td>
+					<td>
+						<input type="text" id="guardian_phone" name="MODMR.guardian_phone" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">医疗支付</td>
+					<td >
+						<select id="custom_medicalPay" name="MODMR.custom_medicalPay" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td class="table-text">药物过敏史</td>
+					<td>
+						<input type="checkbox" value="01" name="MODMR.custom_allergy">青霉素&emsp;<input type="checkbox" value="02" name="MODMR.custom_allergy">磺胺类&emsp;<input type="checkbox" value="03" name="MODMR.custom_allergy">头孢类&emsp;<input type="checkbox" value="04" name="MODMR.custom_allergy">其他
+					</td>
+					<td class="table-text">饮食习惯</td>
+					<td>
+						<select id="custom_foodHabit" name="MODMR.custom_foodHabit" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">定点医疗机构1</td>
+					<td >
+						<input type="text" id="custom_DMI1" name="MODMR.custom_DMI1" validate="v.email" class="citic-ast"/>
+					</td>
+					<td class="table-text">定点医疗机构2</td>
+					<td>
+						<input type="text" id="custom_DMI2" name="MODMR.custom_DMI2" validate="v.required" class="citic-ast"/>
+					</td>
+					<td class="table-text">定点医疗机构3</td>
+					<td>
+						<input type="text" id="custom_DMI3" name="MODMR.custom_DMI3" validate="v.required" class="citic-ast"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">睡眠习惯</td>
+					<td >
+						<input style="width: 90% !important;" type="text" id="custom_sleepingHabit" name="MODMR.custom_sleepingHabit" validate="v.required" class="citic-ast" />小时/天
+					</td>
+					<td width="11%" class="table-text">血型</td>
+					<td width="22.333%">
+						<select id="custom_blood" name="MODMR.custom_blood" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td width="11%" class="table-text"></td>
+					<td width="22.333%">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title">
+			<span>目前生活状况<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td width="8%" class="table-text">居住情况</td>
+					<td >
+						<table>
+							<tr>
+								<td><input type="checkbox" value="01" name="MODMR.custom_livingState">独自居住&emsp;<input type="checkbox" value="02" name="MODMR.custom_livingState">与配偶居住&emsp;<input type="checkbox" value="03" name="MODMR.custom_livingState">与父母同住</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" value="01" name="MODMR.custom_livingState">与子女居住&emsp;<input type="checkbox" value="02" name="MODMR.custom_livingState">与配偶及子女居住&emsp;<input type="checkbox" value="03" name="MODMR.custom_livingState">住养老机构&emsp;<input type="checkbox" value="04" name="MODMR.custom_livingState">其他</td>
+							</tr>
+						</table>
+					</td>
+					<td width="8%" class="table-text">经济来源</td>
+					<td >
+						<table>
+							<tr>
+								<td><input type="checkbox" value="01" name="MODMR.custom_income">退休金、养老金&emsp;<input type="checkbox" value="02" name="MODMR.custom_income">子女补贴&emsp;<input type="checkbox" value="03" name="MODMR.custom_income">亲友资助</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" value="01" name="MODMR.custom_income">低保费&emsp;<input type="checkbox" value="02" name="MODMR.custom_income">残疾补助&emsp;<input type="checkbox" value="03" name="MODMR.custom_income">其他来源</td>
+							</tr>
+						</table>
+					</td>
+					<td width="8%" class="table-text">居住环境</td>
+					<td >
+						<table>
+							<tr>
+								<td style="padding: 3px"><input type="checkbox" value="01" name="MODMR.custom_livingEnvir">晚上的灯光不足或没有照明，包括客厅、卧室、厨房、卫生间</td>
+							</tr>
+							<tr>
+								<td style="padding: 3px"><input type="checkbox" value="02" name="MODMR.custom_livingEnvir">老年人经常行走的地面走道不平整，有坡道</td>
+							</tr>
+							<tr>
+								<td style="padding: 3px"><input type="checkbox" value="03" name="MODMR.custom_livingEnvir">老年人进出家门或房间困难，包括台阶、门栏或楼房无电梯</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title">
+			<span>体格检查<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text " style="width: 100%" id="bodyApperance"><!-- table-bor-paw-->
+				<tr >
+					<td class="table-text" rowspan="2">生命体征</td>
+					<td class="table-text">体温</td>
+					<td >
+						<input type="text" id="custom_temperature" name="MODMR.custom_temperature" validate="v.required" />℃
+					</td>
+					<td  class="table-text">脉搏</td>
+					<td >
+						<input type="text" id="custom_pulse" name="MODMR.custom_pulse" validate="v.required" />次/分
+					</td>
+					<td  class="table-text">呼吸</td>
+					<td >
+						<input type="text" id="custom_breath" name="MODMR.custom_breath" validate="v.required"  />次/分
+					</td>
+					<td  class="table-text">血压</td>
+					<td>
+						<input type="text" id="custom_bloodPressure" name="MODMR.custom_bloodPressure" validate="v.required"  />mmHg
+					</td>
+				</tr>
+				<tr >
+					<td  class="table-text">血糖</td>
+					<td >
+						<input type="text" id="custom_bloodSugar" name="MODMR.custom_bloodSugar" validate="v.required"  />mmol/L
+					</td>
+					<td  class="table-text">身高</td>
+					<td >
+						<input type="text" id="custom_height" name="MODMR.custom_height" validate="v.required" />cm
+					</td>
+					<td  class="table-text">体重</td>
+					<td ><input type="text" id="custom_weight" name="MODMR.custom_weight" validate="v.required"/>kg</td>
+					<td  class="table-text">体重指数</td>
+					<td >
+						<input type="text" id="custom_bmi" name="MODMR.custom_bmi" validate="v.required" />
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table class="table table-bordered tablr-input-text " style="font-size: 12px;text-align: center" id="tigejiancha">
+				<tr>
+					<td  class="table-text" >发育</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_growth" />正常&emsp;<input type="radio" value="02" name="MODMR.custom_growth" />异常
+					</td>
+					<td  class="table-text" >营养</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_nutrion" />良好&emsp;<input type="radio" value="02" name="MODMR.custom_nutrion" />差
+					</td>
+					<td  class="table-text" >体位</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_position" />自如&emsp;<input type="radio" value="02" name="MODMR.custom_position" />差
+					</td>
+					<td  class="table-text" >步态</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_step" />平稳&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_step" />不稳
+					</td>
+				</tr>
+				<tr>
+					<td  class="table-text" >神智</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_spirit" />清&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_spirit" />合作&emsp;&emsp;<input type="radio" value="03" name="MODMR.custom_spirit" />不合作
+					</td>
+					<td  class="table-text" width="120px">全身皮肤粘膜黄染</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_yellow" />无&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_yellow" />有
+					</td>
+					<td  class="table-text" width="120px">浅表淋巴结肿大</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_lymph" />无&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_lymph" />有
+					</td>
+					<td  class="table-text">咽</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_pharynx" />不充血&emsp;<input type="radio" value="02" name="MODMR.custom_pharynx" />充血
+					</td>
+				</tr>
+				<tr>
+					<td  class="table-text">胸部叩诊</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_chest" />清音&emsp;<input type="radio" value="02" name="MODMR.custom_chest" />浊音&emsp;&emsp;<input type="radio" value="03" name="MODMR.custom_chest" />实音
+					</td>
+					<td  class="table-text">呼吸音</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_breathVoice" />清晰&emsp;<input type="radio" value="02" name="MODMR.custom_breathVoice" />粗
+					</td>
+					<td  class="table-text">啰音</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_rale" />未闻及&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_rale" />闻及干湿啰音
+					</td>
+					<td  class="table-text">腹</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_abdomen" />平软&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_abdomen" />抵抗
+					</td>
+				</tr>
+				<tr>
+					<td  class="table-text">压痛及反跳痛</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_pressPain" />无&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_pressPain" />有
+					</td>
+					<td  class="table-text">脊柱畸形</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_spine" />无&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_spine" />有
+					</td>
+					<td  class="table-text">四肢畸形</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_armsAndLegs" />无&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_armsAndLegs" />有
+					</td>
+					<td  class="table-text">关节</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_joint" />正常&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_joint" />红肿&emsp;&emsp;<input type="radio" value="03" name="MODMR.custom_joint" />活动受限
+					</td>
+				</tr>
+				<tr>
+					<td  class="table-text">膝腱反射</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_knee" />正常&emsp;<input type="radio" value="02" name="MODMR.custom_knee" />无
+					</td>
+					<td  class="table-text">巴氏症</td>
+					<td >
+						<input type="radio" value="01" name="MODMR.custom_BA" />(-)&emsp;&emsp;<input type="radio" value="02" name="MODMR.custom_BA" />(+)
+					</td>
+					<td  class="table-text"></td>
+					<td >
+					</td>
+					<td  class="table-text"></td>
+					<td >
+					</td>
+				</tr>
+				<tr>
+					<td  class="table-text">异常结果</td>
+					<td colspan="13">
+						<textarea class="citic-text-ast" id="custom_errResult" name="MODMR.custom_errResult" ></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title">
+			<span>病史信息<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td class="table-text" rowspan="7" width="8%">确诊疾病</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="01" name="MODMR.custom_disease"></span>
+							<label>高血压</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="02" name="MODMR.custom_disease"></span>
+							<label>高血脂</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="03" name="MODMR.custom_disease"></span>
+							<label>高血压</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="04" name="MODMR.custom_disease"></span>
+							<label>糖尿病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="05" name="MODMR.custom_disease"></span>
+							<label>冠心病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="06" name="MODMR.custom_disease"></span>
+							<label>脑出血</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="07" name="MODMR.custom_disease"></span>
+							<label>脑梗死</label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="08" name="MODMR.custom_disease"></span>
+							<label>骨科</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="09" name="MODMR.custom_disease"></span>
+							<label>颈椎病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="10" name="MODMR.custom_disease"></span>
+							<label>腰椎病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span><input type="checkbox" value="11" name="MODMR.custom_disease"></span>
+							<label>退行性骨关节病</label>
+						</div>
+					</td>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="12" name="MODMR.custom_disease"></span>
+							<label>骨质疏松</label>
+						</div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="13" name="MODMR.custom_disease"></span>
+							<label>呼吸系统</label>
+						</div>
+					</td>
+					<td colspan="6">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="14" name="MODMR.custom_disease"></span>
+							<label>消化系统</label>
+						</div>
+					</td>
+					<td colspan="6">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="15" name="MODMR.custom_disease"></span>
+							<label>泌尿系统</label>
+						</div>
+					</td>
+					<td colspan="6">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<div class="ecitic-checkbox ecitic-checkbox-inline">
+							<span class="checkd"><input type="checkbox" value="16" name="MODMR.custom_disease"></span>
+							<label>精神疾病</label>
+						</div>
+					</td>
+					<td colspan="6">
+					</td>
+				</tr>
+				<tr>
+					<td class="table-text">其他</td>
+					<td colspan="6">
+						<textarea id="custom_disease2" name="MODMR.custom_disease2" class="citic-text-ast" style="height: 80px"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!--<div class="ecitic-title-table">-->
+			<!--<table class="table table-bordered tablr-input-text">&lt;!&ndash; table-bor-paw&ndash;&gt;-->
+				<!--<tr>-->
+					<!--<td class="table-text" width="8%">用药情况</td>-->
+					<!--<td>-->
+						<!--<textarea id="yongyaoqingkang" name="MODMR.custom_win" class="citic-text-ast" style="height: 80px"></textarea>-->
+					<!--</td>-->
+				<!--</tr>-->
+			<!--</table>-->
+		<!--</div>-->
+		<!--<div class="ecitic-title-table">-->
+			<!--<table class="table table-bordered tablr-input-text">&lt;!&ndash; table-bor-paw&ndash;&gt;-->
+				<!--<tr>-->
+					<!--<td class="table-text" width="8%">医生建议</td>-->
+					<!--<td>-->
+						<!--<textarea id="yishengjianyi" name="MODMR.custom_win" class="citic-text-ast" style="height: 80px"></textarea>-->
+					<!--</td>-->
+				<!--</tr>-->
+			<!--</table>-->
+		<!--</div>-->
+		<div class="ecitic-save">
+			<input id="customInfoSave" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+	<!---->
+
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript" src="medicalRounds/basic_info/medicalRounds_add.js"></script>
+<script src="upload/uploadFileInfo.js"></script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+</body>
+</html>

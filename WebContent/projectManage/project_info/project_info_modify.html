@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>客户信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<body>
+<form action="" id="modifyProjectInfo">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>项目信息维护<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-new">
+			<table class="table table-bordered table-hover pos-rel" id="projectInfoTable">
+				<tr>
+					<th width="12%">项目编号</th>
+					<th width="12%">项目名称</th>
+					<th width="12%">项目类型</th>
+					<th width="12%">开始时间</th>
+					<th width="12%">结束时间</th>
+					<th width="12%">项目执行期</th>
+				</tr>
+				<tr>
+					<td>
+						<input id="project_id" name="MODP.project_id" type=hidden name=p_name/>
+						<input id="project_no" validate=v.required name="MODP.project_no" class=citic-ast/>
+					</td>
+					<td>
+						<input id="project_name" name="MODP.project_name" class=citic-ast>
+					</td>
+					<td>
+						<select id="project_type" name="MODP.project_type" class="citic-sele-ast" validate="v.required"></select>
+					</td>
+					<td>
+						<input type=text id="project_startTime" name="MODP.project_start_time" onClick=WdatePicker({}) valititle=点击选择
+							   validate=v.required onchange=TimeCompare() class=input readonly/>
+					</td>
+					<td>
+						<input type=text id="project_endTime" name="MODP.project_end_time" onClick=WdatePicker({}) valititle=点击选择
+							   validate=v.required onchange=TimeCompare() class=input readonly/>
+					</td>
+					<td>
+						<input id="project_period" name="MODP.project_period" class=citic-ast>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-save">
+			<input id="projectInfoSave" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+</script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script src="projectManage/project_info/project_info_modify.js"></script>
+</body>
+</html>

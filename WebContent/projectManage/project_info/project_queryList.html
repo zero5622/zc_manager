@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>人员入行信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<body>
+<div class="ecitic-inquire" id="ecitic-inquire">
+	<div class="ecitic-table" id="ecitic-table">
+		<form action="" id="projectQueryData">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-bor-pad">
+				<tr>
+					<td class="ecitic-right">项目编号</td>
+					<td><input type="text" name="QP.project_no" id="project_no"/></td>
+					<td class="ecitic-right">项目名称</td>
+					<td>
+						<input type="text" name="QP.project_name" id="project_name"/>
+					</td>
+					<td class="ecitic-right">项目类型</td>
+					<td>
+						<select id="project_type" name="QP.project_type"></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="ecitic-right">开始时间</td>
+					<td>
+						<input type=text id="project_start_time" name="QP.project_start_time" onClick=WdatePicker({}) valititle=点击选择
+							   validate=v.required onchange=TimeCompare() class=input readonly/>
+					</td>
+					<td class="ecitic-right">结束时间</td>
+					<td>
+						<input type=text id="project_end_time" name="QP.project_end_time" onClick=WdatePicker({}) valititle=点击选择
+							   validate=v.required onchange=TimeCompare() class=input readonly/>
+					</td>
+				</tr>
+				<tr>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<ul class="ecitic-btn-all">
+		<li><button type="button" class="btn btn-ecitic" id="queryProjectInfo">查询</button></li>
+		<li><button type="button" class="btn btn-ecitic" id="reset">重置</button></li>
+	</ul>
+</div>
+<div class="ecitic-operation">
+	<button type="button" class="btn btn-ecitic" id="projectInfoAdd">新增</button>
+	<button type="button" class="btn btn-ecitic" id="projectInfoModify">修改</button>
+	<button type="button" class="btn btn-ecitic" id="wuliao1">编辑物料信息</button>
+	<button type="button" class="btn btn-ecitic" id="staffInfoDel">删除</button>
+</div>
+<div class="ecitic-new">
+	<table class="table table-bordered table-hover table-text-show" id="projectInfoList" style="table-layout: fixed;"></table>
+</div>
+
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="projectManage/project_info/project_queryList.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>客户信息登记</title>
+<link href="bootstrap/css/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/form.css" />
+</head>
+<body>
+<form action="" id="addStaffList">
+	<div class="main_iframe_con">
+		<div class="ecitic-title">
+			<span>巡诊记录录入<em></em></span>
+			<i></i>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+                    <td width="11%" class="table-text">巡诊日期</td>
+                    <td width="22.333%">
+						<input type="text" id="staff_birthday" name="S.staff_birthday" onClick="WdatePicker({})" valititle="点击选择"  onchange="TimeCompare()" class="citic-ast" class="input" readonly/>
+                    </td>
+                    <td width="11%" class="table-text">客户姓名</td>
+                    <td width="22.333%">
+						<input type="text" id="kehuxingming" name="S.identity_card" class="citic-ast"/>
+                    </td>
+					<td class="table-text">康复员</td>
+					<td>
+						<input type="text" id="identity_card" name="S.identity_card" class="citic-ast"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td class="table-text" width="8%">用药情况</td>
+					<td>
+						<textarea id="yongyaoqingkang" name="S.staff_win" class="citic-text-ast" style="height: 80px"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-title-table">
+			<table class="table table-bordered tablr-input-text"><!-- table-bor-paw-->
+				<tr>
+					<td class="table-text" width="8%">医生建议</td>
+					<td>
+						<textarea id="yishengjianyi" name="S.staff_win" class="citic-text-ast" style="height: 80px"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="ecitic-save">
+			<input id="staffInfoSave" type="button" class="btn btn-ecitic" value="保存" />
+			<input type="button" class="btn btn-ecitic" name="closePageTabConfirm"  value="关闭"/>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+ //单选按钮 
+ var staSex=getCurrentPageObj().find("input[name='S.staff_sex']");
+ 	staSex.unbind("click"); 
+ 	staSex.click(function(){ 
+ 	getCurrentPageObj().find("input[name='S.staff_sex']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd'); 
+ });
+ var staWed=getCurrentPageObj().find("input[name='S.staff_wed']");
+ 	staWed.unbind("click");
+ 	staWed.click(function(){
+ 	getCurrentPageObj().find("input[name='S.staff_wed']").parent().removeClass('checkd');
+ 	$(this).parent("span").addClass('checkd');
+ });
+</script>
+<script type="text/javascript" src="js/commons/ajaxfileupload.js"></script>
+<script src="bootstrap/js/bootstrap-table.min.js"></script>
+<script src="bootstrap/js/bootstrap-table-zh-CN.js"></script>
+<script src="custom_manage/custom_info/customInfo_add.js"></script>
+</body>
+</html>
